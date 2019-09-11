@@ -1,5 +1,7 @@
 body.h1{
     font-size: 24pt;
     border-width: 2px;
+    border-color:salmon;
+    background-color: purple;
     
 }
