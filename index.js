@@ -1,6 +1,6 @@
 
 const charLimit = 7;
-const Racks = $(document).getElementById("Racks");
+const Racks = document.getElementById("Racks");
 
 var genericGetRequest = function(URL,data,callback){
     $.ajax({
@@ -14,7 +14,7 @@ var wordList;
 $(document).ready(function(){
     
     genericGetRequest("https://webservercpeg.herokuapp.com/index.php",
-        $(document).getElementById("Rack").innerHTML(),function(data){
+        document.getElementById("Rack").innerHTML(),function(data){
             console.log(data);
             wordList = data;
         }
