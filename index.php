@@ -1,26 +1,39 @@
 <?php
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
-    $data = $_POST['data'];
+    $data = $_POST['rack'];
     //this is the basic way of getting a database handler from PDO, PHP's built in quasi-ORM
     $dbhandle = new PDO("sqlite:scrabble.sqlite") or die("Failed to open DB");
     if (!$dbhandle) die ($error);
     
     /*
-    start($chars, $size, $combinations = array())
-    size = size+1;
-    if(size<=$chars.sizeof()){
-        foreach($element in $chars)
-        foreach($combs as $combinations)
-        ->start($chars,$size,)
-    }
     
+    var getRackPossilities = function(rackList,currentWord,wordList){
+        if(currentWord.length<7){
+            rackList.array.forEach(element => {
+            currentWord.concat(rackList[currentWord.length]);
+            getRackPossilities(rackList,currentWord,wordList);
+            var results = genericGetRequest()
+        });
+    }
 
+    
+}
     */
+    $query = "";
+    
+    function post_builder($rack,$currWord, $combinations = array()) {
+        if($currWord<=7){
+            foreach($elem as $rack){
+                $currWord .= $elem;
+                $query = "select words from racks where rack =" . $currWord;
+                $result = $dbhandle->prepare($query)->execute();
+                if($result.isset()){
+                    $combinations.=$result;
+                }
+                post_builder(($rack,$currWord, $combinations);
 
-    function post_builder($chars, $size, $depth, $combinations = array()) {
-        if (empty($combinations)) {
-            $combinations = $chars;
+            }
         }
         # if it's the first iteration, the first set 
         # of combinations is the same as the set of characters

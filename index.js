@@ -6,31 +6,34 @@ var genericGetRequest = function(URL,data,callback){
     $.ajax({
         method: "GET",
         url: URL,
-        data:{"word":data},
+        data:{"rack":data},
         success: data=>{callback(data)}
     });
 };
-var getRackPossilities = function(rackList,currentWord,wordList){
-    if(currentWord.length<7){
-        rackList.array.forEach(element => {
-            currentWord.concat(rackList[currentWord.length]);
-            getRackPossilities(rackList,currentWord,wordList);
-            var results = genericGetRequest()
-        });
-    }
-
-    
-}
+var wordList;
 $(document).ready(function(){
+    
+    genericGetRequest("https://webservercpeg.herokuapp.com/index.php",
+        $.getElementById("Rack").innerHTML(),function(data){
+            console.log(data);
+            wordList = data;
+        }
+    );
     let showRacks = function(racks){
-        $("#bingos").html('');
+        /*   $("#bingos").html('');
+           racks.map(rack=>{
+               $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
+           });
+           $("#bingos li").on("click", function(evt){
+               $(evt.currentTarget).find(".answer").toggleClass("hidden");
+           });*/
+           
         racks.map(rack=>{
             $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
         });
-        $("#bingos li").on("click", function(evt){
-            $(evt.currentTarget).find(".answer").toggleClass("hidden");
-        });
     };
+    showRacks(wordList);
+
 });
 
 
