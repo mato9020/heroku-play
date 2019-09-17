@@ -29,7 +29,7 @@ $(document).ready(function(){
            });*/
            
         racks.map(rack=>{
-            $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
+            $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
         });
     };
     showRacks(wordList);
