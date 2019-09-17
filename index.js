@@ -1,6 +1,6 @@
 
 const charLimit = 7;
-const Racks = $.getElementById("Racks");
+const Racks = $(document).getElementById("Racks");
 
 var genericGetRequest = function(URL,data,callback){
     $.ajax({
