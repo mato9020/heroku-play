@@ -15,7 +15,7 @@ var getRackPossilities = function(rack,currentWord='',wordList=[]){
         for (let index = 0; index < rack.length; index++) {
             var element = rack[index];
             currentWord.concat(element);
-            wordList.append(currentWord);
+            wordList.push(currentWord);
             getRackPossilities(rack,currentWord,wordList);
             
         }
