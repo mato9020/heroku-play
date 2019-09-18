@@ -10,16 +10,25 @@ var genericGetRequest = function(URL,data,callback){
         success: data=>{callback(data)}
     });
 };
-var getRackPossilities = function(rack,currentWord='',wordList=[]){
-    if(currentWord.length<7){
-        for (let index = 0; index < rack.length; index++) {
-            var element = rack[index];
-            currentWord+=element;
-            wordList.push(currentWord);
-            getRackPossilities(rack,currentWord,wordList);
-            
-        }
-    };
+var getRackPossilities = function(rack){
+    var wordList = [];
+    var loop = function(rack,depth){
+        if(depth<7){
+            depth++;
+            for (let index = 0; index < rack.length; index++) {
+                var element = rack[index];
+                currentWord+=element;
+                wordList.push(currentWord);
+                loop(rack,depth); 
+                //double check the currWord is the right size idk if this work
+                
+                currentWord = currentWord.slice(0,depth-1);
+                console.log(currentWord);
+            }
+            depth--;
+        };
+    }
+    
     return wordList;
 }
 
