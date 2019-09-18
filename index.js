@@ -10,13 +10,15 @@ var genericGetRequest = function(URL,data,callback){
         success: data=>{callback(data)}
     });
 };
-var getRackPossilities = function(rackList,currentWord="",wordList=array()){
+var getRackPossilities = function(rackList,currentWord="",wordList=[]){
     if(currentWord.length<7){
-        rackList.array.forEach(element);
+        rackList.forEach(element=>{
             currentWord.append(element);
             wordList.append(currentWord);
             getRackPossilities(rackList,currentWord,wordList);
+        });
     };
+    return wordList;
 }
 
 var wordList;
