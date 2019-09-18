@@ -21,15 +21,17 @@ var getRackPossilities = function(rack){
                 wordList.push(currentWord);
                 loop(rack,depth); 
                 //double check the currWord is the right size idk if this work
-                
+
                 currentWord = currentWord.slice(0,depth-1);
                 console.log(currentWord);
             }
             depth--;
         };
     }
+    loop(rack,0);
     
     return wordList;
+
 }
 
 $(document).ready(function(){
