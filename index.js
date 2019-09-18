@@ -1,6 +1,6 @@
 
 const charLimit = 7;
-const racks = document.getElementById("Racks");
+const racks = document.getElementById("Rack");
 
 var genericGetRequest = function(URL,data,callback){
     $.ajax({
@@ -10,18 +10,17 @@ var genericGetRequest = function(URL,data,callback){
         success: data=>{callback(data)}
     });
 };
-var getRackPossilities = function(rackList,currentWord="",wordList=[]){
+var getRackPossilities = function(rack,currentWord="",wordList=[]){
     if(currentWord.length<7){
-        rackList.forEach(element=>{
+        rack.forEach(element=>{
             currentWord.append(element);
             wordList.append(currentWord);
-            getRackPossilities(rackList,currentWord,wordList);
+            getRackPossilities(rack,currentWord,wordList);
         });
     };
     return wordList;
 }
 
-var wordList;
 $(document).ready(function(){
     
     
