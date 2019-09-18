@@ -1,6 +1,6 @@
 
 const charLimit = 7;
-const racks = document.getElementById("Rack");
+const racks = document.getElementById("Rack").innerHTML;
 
 var genericGetRequest = function(URL,data,callback){
     $.ajax({
@@ -24,8 +24,8 @@ var getRackPossilities = function(rack,currentWord="",wordList=[]){
 $(document).ready(function(){
     
     
-    let showRacks = function(racks){
-        var rackList = getRackPossilities(racks);
+    let showRacks = function(rack){
+        var rackList = getRackPossilities(rack);
         console.log(rackList);
         /*   $("#bingos").html('');
            racks.map(rack=>{
@@ -39,7 +39,7 @@ $(document).ready(function(){
         //     $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
         // });
     };
-    showRacks(wordList);
+    showRacks(racks);
 
 });
 
