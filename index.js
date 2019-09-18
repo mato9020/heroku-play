@@ -10,11 +10,11 @@ var genericGetRequest = function(URL,data,callback){
         success: data=>{callback(data)}
     });
 };
-var getRackPossilities = function(rack,currentWord="",wordList=[]){
+var getRackPossilities = function(rack,currentWord='',wordList=[]){
     if(currentWord.length<7){
         for (let index = 0; index < rack.length; index++) {
-            const element = rack[index];
-            currentWord+=element;
+            var element = rack[index];
+            currentWord.concat(element);
             wordList.append(currentWord);
             getRackPossilities(rack,currentWord,wordList);
             
