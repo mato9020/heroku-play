@@ -1,6 +1,6 @@
 
 const charLimit = 7;
-const Racks = document.getElementById("Racks");
+const racks = document.getElementById("Racks");
 
 var genericGetRequest = function(URL,data,callback){
     $.ajax({
@@ -10,16 +10,22 @@ var genericGetRequest = function(URL,data,callback){
         success: data=>{callback(data)}
     });
 };
+var getRackPossilities = function(rackList,currentWord="",wordList=array()){
+    if(currentWord.length<7){
+        rackList.array.forEach(element);
+            currentWord.append(element);
+            wordList.append(currentWord);
+            getRackPossilities(rackList,currentWord,wordList);
+    };
+}
+
 var wordList;
 $(document).ready(function(){
     
-    genericGetRequest("https://webservercpeg.herokuapp.com/index.php",
-        document.getElementById("Rack").innerHTML,function(data){
-            console.log(data);
-            wordList = data;
-        }
-    );
+    
     let showRacks = function(racks){
+        var rackList = getRackPossilities(racks);
+        console.log(rackList);
         /*   $("#bingos").html('');
            racks.map(rack=>{
                $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
@@ -28,9 +34,9 @@ $(document).ready(function(){
                $(evt.currentTarget).find(".answer").toggleClass("hidden");
            });*/
            
-        racks.map(rack=>{
-            $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
-        });
+        // racks.map(rack=>{
+        //     $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
+        // });
     };
     showRacks(wordList);
 

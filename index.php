@@ -8,38 +8,14 @@
     
     /*
     
-    var getRackPossilities = function(rackList,currentWord,wordList){
-        if(currentWord.length<7){
-            rackList.array.forEach(element => {
-            currentWord.concat(rackList[currentWord.length]);
-            getRackPossilities(rackList,currentWord,wordList);
-            var results = genericGetRequest()
-        });
-    }
+    
 
     
 }
     */
     $query = "";
     
-    function wordLister($rack,$currWord, $combinations = array()) {
-        if($currWord<=7){
-            foreach($elem as $rack){
-                $currWord .= $elem;
-                $query = "select words from racks where rack =" . $currWord;
-                $result = $dbhandle->prepare($query)->execute();
-                if($result.isset()){
-                    $combinations.=$result;
-                }
-                post_builder(($rack,$currWord, $combinations);
-
-            }
-        }
-        # if it's the first iteration, the first set 
-        # of combinations is the same as the set of characters
-        
-        return $combinations;
-    }
+    
    
     $results = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
     $query = "";
