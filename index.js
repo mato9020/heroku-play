@@ -12,11 +12,13 @@ var genericGetRequest = function(URL,data,callback){
 };
 var getRackPossilities = function(rack,currentWord="",wordList=[]){
     if(currentWord.length<7){
-        rack.forEach(element=>{
+        for (let index = 0; index < rack.length; index++) {
+            const element = rack[index];
             currentWord.append(element);
             wordList.append(currentWord);
             getRackPossilities(rack,currentWord,wordList);
-        });
+            
+        }
     };
     return wordList;
 }
