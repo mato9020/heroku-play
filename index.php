@@ -1,5 +1,5 @@
 <?php
-    ini_set('display_errors',1);
+    //ini_set('display_errors',1);
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
     $data = $_GET['rack'];
