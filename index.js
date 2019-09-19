@@ -14,17 +14,15 @@ var getRackPossilities = function(rack){
     var wordList = [];
     var currentWord = "";
     var loop = function(rack,depth){
-        if(depth<7){
+        if(currentWord.length<=7){
             depth++;
             for (let index = 0; index < rack.length; index++) {
+                currentWord = currentWord.slice(0,depth-1);
                 var element = rack[index];
                 currentWord+=element;
                 wordList.push(currentWord);
                 loop(rack,depth); 
                 //double check the currWord is the right size idk if this work
-
-                currentWord = currentWord.slice(0,depth);
-                
             }
             depth--;
         };
