@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors',1);
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
     $data = $_GET['rack'];
@@ -13,12 +14,10 @@
     
 }
     */
-    $query = "";
     
     
    
     $results = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
-    $query = "";
 //     function sampling($chars, $size, $combinations = array()) {
 
 //     # if it's the first iteration, the first set 
@@ -46,15 +45,24 @@
 //     return sampling($chars, $size - 1, $new_combinations);
 
 // }
+    function queryDB($rackList){
+        $wordResult = "";
+        foreach($elem as $rackList){
+            $statement = $dbhandle->prepare("SELECT words from racks where rack="+$elem);
+            $query = $dbhandle->query($query);
+            $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
+            $words = $wordResult.explode("@@");
+        }
+        return $words;
+    }
     if($verb="POST"){
     }
     if($verb = "GET"){
-        $results = wordLister($rack,"");
+        $result = queryDB($data);
     }
 
 
 
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request

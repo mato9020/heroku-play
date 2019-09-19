@@ -2,14 +2,15 @@
 const charLimit = 7;
 const racks = document.getElementById("Rack").innerHTML;
 
-var genericGetRequest = function(URL,data,callback){
+var genericGetRequest = function(URL,dat,cb){
     $.ajax({
-        method: "GET",
-        url: URL,
-        data:{"rack":data},
-        success: data=>{callback(data)}
+        url:URL,
+        data:{words:dat},
+        dataType:"json",
+        success:cb(data)
     });
 };
+
 var getRackPossilities = function(rack){
     var wordList = [];
     var currentWord = "";
@@ -33,9 +34,8 @@ var getRackPossilities = function(rack){
 
 $(document).ready(function(){
     
-    
-    let showRacks = function(rack){
-        var rackList = getRackPossilities(rack);
+    var showRacks = function(rack){
+        rackList = getRackPossilities(rack);
         console.log(rackList);
         /*   $("#bingos").html('');
            racks.map(rack=>{
@@ -48,9 +48,18 @@ $(document).ready(function(){
         // racks.map(rack=>{
         //     $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
         // });
-    };
-    showRacks(racks);
 
+        
+    };
+
+    let cb = function(data){
+        data.map(rack=>{
+            $("#wordList").append(`<li>${rack}</span></li>`);
+        });
+    };
+    var rackJSON = JSON.stringify(showRacks(racks));
+    var results = genericGetRequest("index.php",rackJSON,cb);
+    
 });
 
 
