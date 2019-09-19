@@ -23,7 +23,7 @@ var getRackPossilities = function(rack){
                 loop(rack,depth); 
                 //double check the currWord is the right size idk if this work
 
-                currentWord = currentWord.slice(0,depth-1);
+                currentWord = currentWord.slice(0,depth);
                 console.log(currentWord);
             }
             depth--;
