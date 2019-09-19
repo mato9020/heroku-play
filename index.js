@@ -49,12 +49,12 @@ $(document).ready(function(){
         //     $("#bingos").append(`<li>${rack.rack}: <span>${rack.words}</span></li>`);
         // });
 
-        
+        return rackList;
     };
 
     var rackJSON = JSON.stringify(showRacks(racks));
     var results = genericGetRequest("index.php",rackJSON,
-    data.map(rack=>{$("#wordList").append(`<li>${rack}</span></li>`);})
+    data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);})
     );
     
 });
