@@ -52,13 +52,10 @@ $(document).ready(function(){
         
     };
 
-    let cb = function(data){
-        data.map(rack=>{
-            $("#wordList").append(`<li>${rack}</span></li>`);
-        });
-    };
     var rackJSON = JSON.stringify(showRacks(racks));
-    var results = genericGetRequest("index.php",rackJSON,cb);
+    var results = genericGetRequest("index.php",rackJSON,
+    data.map(rack=>{$("#wordList").append(`<li>${rack}</span></li>`);})
+    );
     
 });
 
