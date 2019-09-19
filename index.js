@@ -15,7 +15,7 @@ var getRackPossilities = function(rack){
     var currentWord = "";
     var loop = function(rack,depth){
         if(depth<7){
-            for (let index = 0; index < rack.length-1; index++) {
+            for (let index = 0; index < rack.length; index++) {
                 var element = rack[index];
                 currentWord+=element;
                 wordList.push(currentWord);
