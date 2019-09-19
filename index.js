@@ -12,6 +12,7 @@ var genericGetRequest = function(URL,data,callback){
 };
 var getRackPossilities = function(rack){
     var wordList = [];
+    var currentWord = "";
     var loop = function(rack,depth){
         if(depth<7){
             depth++;
