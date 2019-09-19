@@ -51,11 +51,11 @@ $(document).ready(function(){
 
         return rackList;
     };
-
+    var callback = function(data){
+        data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);});
+    }
     var rackJSON = JSON.stringify(showRacks(racks));
-    var results = genericGetRequest("index.php",rackJSON,
-    data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);})
-    );
+    var results = genericGetRequest("index.php",rackJSON,callback);
     
 });
 
