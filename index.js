@@ -53,10 +53,9 @@ $(document).ready(function(){
         return rackList;
     };
     var callback = function(data){
-        console.log(data);
-        data = JSON.decode(data);
-
-        data = data.map(words=>{$("#wordList").append(`<li>${words.word}</span></li>`);});
+        console.log(data); 
+        data = data.map(function(words)
+            {$("#wordList").append(`<li>${words}</span></li>`);});
         
     }
     var results = genericGetRequest("index.php",showRacks(racks),callback);
