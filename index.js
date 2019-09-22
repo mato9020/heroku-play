@@ -37,7 +37,8 @@ $(document).ready(function(){
     var showRacks = function(rack){
         rackList = getRackPossilities(rack);
         console.log(rackList);
-        rackList = rackList.replace('\\','');
+        let x = new RegExp('/\\/');
+        rackList = rackList.replace(x,'');
         /*   $("#bingos").html('');
            racks.map(rack=>{
                $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
