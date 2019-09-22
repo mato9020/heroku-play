@@ -7,8 +7,9 @@ var genericGetRequest = function(URL,dat,cb){
         url:URL,
         data:{words:dat},
         dataType:"json",
-        success:cb(data)
-    });
+        success:function(data){
+            JSON.parse(cb(data));
+    }});
 };
 
 var getRackPossilities = function(rack){
