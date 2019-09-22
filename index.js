@@ -37,6 +37,7 @@ $(document).ready(function(){
     var showRacks = function(rack){
         rackList = getRackPossilities(rack);
         console.log(rackList);
+        rackList = rackList.replace('\\','');
         /*   $("#bingos").html('');
            racks.map(rack=>{
                $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
@@ -52,7 +53,8 @@ $(document).ready(function(){
         return rackList;
     };
     var callback = function(data){
-        data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);});
+        data = data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);});
+        
     }
     var rackJSON = JSON.stringify(showRacks(racks));
     var results = genericGetRequest("index.php",rackJSON,callback);
