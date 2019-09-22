@@ -31,7 +31,6 @@ var getRackPossilities = function(rack){
     return wordList;
 
 }
-
 $(document).ready(function(){
     
     var showRacks = function(rack){
