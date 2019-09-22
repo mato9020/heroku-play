@@ -7,7 +7,7 @@ var genericGetRequest = function(URL,dat,cb){
         url:URL,
         data:{words:dat},
         dataType:"json",
-        success:cb(dat)
+        success:cb(data)
     });
 };
 
