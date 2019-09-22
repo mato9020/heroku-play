@@ -51,8 +51,8 @@
             $statement = $dbhandle->prepare("SELECT words from racks where rack="+$elem);
             $query = $dbhandle->query($query);
             $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
-            $words = $wordResult.explode("@@");
         }
+        $words = $wordResult.explode("@@");
         return $words;
     }
     if($verb="POST"){
