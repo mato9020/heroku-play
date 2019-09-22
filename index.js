@@ -39,8 +39,6 @@ $(document).ready(function(){
         console.log(rackList);
         rackList = JSON.stringify(rackList);
         console.log(rackList);
-        let x = new RegExp('/\\/');
-        rackList = rackList.replace(x,'');
         /*   $("#bingos").html('');
            racks.map(rack=>{
                $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
@@ -56,6 +54,7 @@ $(document).ready(function(){
         return rackList;
     };
     var callback = function(data){
+        console.log(data);
         data = data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);});
         
     }
