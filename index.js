@@ -37,6 +37,8 @@ $(document).ready(function(){
     var showRacks = function(rack){
         rackList = getRackPossilities(rack);
         console.log(rackList);
+        rackList = JSON.stringify(rackList);
+        console.log(rackList);
         let x = new RegExp('/\\/');
         rackList = rackList.replace(x,'');
         /*   $("#bingos").html('');
@@ -57,8 +59,7 @@ $(document).ready(function(){
         data = data.map(rack=>{$("#wordList").append(`<li>${rack.words}</span></li>`);});
         
     }
-    var rackJSON = JSON.stringify(showRacks(racks));
-    var results = genericGetRequest("index.php",rackJSON,callback);
+    var results = genericGetRequest("index.php",showRacks(racks),callback);
     
 });
 
