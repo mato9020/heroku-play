@@ -62,7 +62,7 @@ document.getElementById("generateRack").addEventListener('click', function(){
     };
     var callback = function(data){
         console.log(data); 
-        var words;
+        var words =[];
         data.forEach(element => {
             words.push(element);
         });
