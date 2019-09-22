@@ -1,6 +1,7 @@
 
 const charLimit = 7;
 const racks = document.getElementById("Rack").innerHTML;
+var wordlist = [];
 
 var genericGetRequest = function(URL,dat,cb){
     $.ajax({
@@ -34,15 +35,6 @@ var getRackPossilities = function(rack){
 
 }
 $(document).ready(function(){
-    
-    
-    
-});
-
-
-
-
-document.getElementById("generateRack").addEventListener('click', function(){
     var showRacks = function(rack){
         rackList = getRackPossilities(rack);
         console.log(rackList);
@@ -62,6 +54,16 @@ document.getElementById("generateRack").addEventListener('click', function(){
 
         return rackList;
     };
+    
+    wordlist = showRacks(racks);
+    
+    
+});
+
+
+
+
+document.getElementById("generateRack").addEventListener('click', function(){
     var callback = function(data){
         console.log(data); 
         var words =[];
@@ -73,7 +75,7 @@ document.getElementById("generateRack").addEventListener('click', function(){
             {$("#wordList").append(`<li>${words}</span></li>`);});
         
     }
-    var results = genericGetRequest("index.php",showRacks(racks),callback);
+    var results = genericGetRequest("index.php",wordlist,callback);
 });
 document.getElementById("WordEntered").addEventListener('click',function(){
     if(!$("#GuessBox").is("empty")){
