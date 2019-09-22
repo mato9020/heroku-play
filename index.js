@@ -54,7 +54,12 @@ $(document).ready(function(){
     };
     var callback = function(data){
         console.log(data); 
-        data = data.map(function(words)
+        var words;
+        for(var i in data){
+            words.push(data[i]);
+        }
+        console.log("words are"+data);
+        words = words.map(function(words)
             {$("#wordList").append(`<li>${words}</span></li>`);});
         
     }
