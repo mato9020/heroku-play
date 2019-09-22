@@ -4,6 +4,7 @@ const racks = document.getElementById("Rack").innerHTML;
 
 var genericGetRequest = function(URL,dat,cb){
     $.ajax({
+        type:'GET',
         url:URL,
         data:{words:dat},
         dataType:"json",
