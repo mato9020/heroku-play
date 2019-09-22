@@ -63,9 +63,7 @@ document.getElementById("generateRack").addEventListener('click', function(){
     var callback = function(data){
         console.log(data); 
         var words;
-        data.forEach(element => {
-            words.push(element);
-        });
+        
         console.log("words are"+data);
         words = words.map(function(words)
             {$("#wordList").append(`<li>${words}</span></li>`);});
