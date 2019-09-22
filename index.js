@@ -33,6 +33,14 @@ var getRackPossilities = function(rack){
 }
 $(document).ready(function(){
     
+    
+    
+});
+
+
+
+
+document.getElementById("generateRack").addEventListener('click', function(){
     var showRacks = function(rack){
         rackList = getRackPossilities(rack);
         console.log(rackList);
@@ -64,14 +72,6 @@ $(document).ready(function(){
         
     }
     var results = genericGetRequest("index.php",showRacks(racks),callback);
-    
-});
-
-
-
-
-document.getElementById("generateRack").addEventListener('click', function(){
-    
 });
 document.getElementById("WordEntered").addEventListener('click',function(){
     if(!$("#GuessBox").is("empty")){
