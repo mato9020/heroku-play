@@ -19,7 +19,7 @@
 
     }
     elseif($verb = "POST"){
-        /*if($data.isset()){
+        if($data.isset()){
             $wordResult = "";
             foreach($elem as $data){
                 $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
@@ -37,7 +37,7 @@
         else{
             echo json_encode("failure at setting");
         }
-        */
+        
         echo json_encode("posting");
         
     }
