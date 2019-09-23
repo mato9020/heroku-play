@@ -18,26 +18,23 @@
         echo json_encode("getting");
         echo json_encode($verb);
         echo json_encode($data);
-        if($data.isset()){
-            /*
-            foreach($data as $elem){
-                $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
-                $statement->execute();
-                $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
-            }
-            $result = $wordResult.explode("@@");
-            */
+       
+        /*
+        foreach($data as $elem){
+            $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
+            $statement->execute();
+            $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+        $result = $wordResult.explode("@@");
+        */
 
-            //this part is perhaps overkill but I wanted to set the HTTP headers and status code
-            //making to this line means everything was great with this request
-            header('HTTP/1.1 200 OK');
-            //this lets the browser know to expect json
-            header('Content-Type: application/json');
-            echo json_encode($result);
-        }
-        else{
-            echo json_encode("failure at setting");
-        }
+        //this part is perhaps overkill but I wanted to set the HTTP headers and status code
+        //making to this line means everything was great with this request
+        header('HTTP/1.1 200 OK');
+        //this lets the browser know to expect json
+        header('Content-Type: application/json');
+        echo json_encode($result);
+    
         
     
     }
