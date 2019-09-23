@@ -22,7 +22,7 @@
         try{
             //echo json_encode($data);
         }
-        catch(Throwable t){
+        catch(Throwable $t){
             echo "caught exception";
         }
 
