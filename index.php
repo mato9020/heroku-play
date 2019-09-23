@@ -17,15 +17,9 @@
     if($verb="GET"){
         echo json_encode("getting");
         echo json_encode($verb);
-
+        echo json_encode($data);
     }
-    elseif($verb = "POST"){
-        try{
-            echo json_encode($data);
-        }
-        catch(Throwable $t){
-            echo "caught exception";
-        }
+   
        /*
         if($data.isset()){
             
@@ -51,7 +45,6 @@
         echo json_encode("posting");
         */
         
-    }
 
 
 
