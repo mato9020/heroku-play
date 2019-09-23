@@ -20,7 +20,7 @@
     }
     elseif($verb = "POST"){
         try{
-            echo json_encode($data);
+            //echo json_encode($data);
         }
         catch(Exception $e){
             echo "caught exception";
