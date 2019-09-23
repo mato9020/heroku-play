@@ -75,7 +75,7 @@ document.getElementById("generateRack").addEventListener('click', function(){
             {$("#wordList").append(`<li>${words}</span></li>`);});
         
     }
-    var wordlist = showRacks(rack);
+    var wordlist = showRacks(racks);
     var results = genericGetRequest("index.php",wordlist,callback);
     return results;
 });
