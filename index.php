@@ -20,7 +20,6 @@
     }
     elseif($verb = "POST"){
         if($data.isset()){
-            $wordResult = "";
             /*
             foreach($data as $elem){
                 $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
