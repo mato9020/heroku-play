@@ -19,14 +19,14 @@
         echo json_encode($verb);
         echo json_encode($data);
         if($data.isset()){
-            
+            /*
             foreach($data as $elem){
                 $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
                 $statement->execute();
                 $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
             }
             $result = $wordResult.explode("@@");
-            
+            */
 
             //this part is perhaps overkill but I wanted to set the HTTP headers and status code
             //making to this line means everything was great with this request
