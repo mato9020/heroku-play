@@ -1,8 +1,9 @@
 <?php
-    //ini_set('display_errors',1);
+    ini_set('display_errors',1);
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
     $data = $_GET['rack'];
+    
     print_r($verb);
     print_r($data);
     //this is the basic way of getting a database handler from PDO, PHP's built in quasi-ORM
@@ -26,6 +27,7 @@
     if($verb="POST"){
     }
     if($verb = "GET"){
+        
         if($data.isset()){
             $result = implode(queryDB($data));}
         die(echo "failed to find data");
