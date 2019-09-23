@@ -14,28 +14,30 @@ var genericGetRequest = function(URL,dat,cb){
     }});
 };
 
-var getRackPossilities = function(rack){
-    var wordList = [];
-    var currentWord = "";
-    var loop = function(rack,depth){
-        if(depth<7){
-            for (let index = 0; index < rack.length; index++) {
-                var element = rack[index];
-                currentWord+=element;
-                wordList.push(currentWord);
-                loop(rack,depth+1);
-                currentWord = currentWord.slice(0,currentWord.length-1);
-                //double check the currWord is the right size idk if this work
-            }
-        };
-    }
-    loop(rack,0);
-    
-    return wordList;
 
-}
 $(document).ready(function(){
     var showRacks = function(rack){
+        var getRackPossilities = function(rack){
+            var wordList = [];
+            var currentWord = "";
+            var loop = function(rack,depth){
+                if(depth<7){
+                    for (let index = 0; index < rack.length; index++) {
+                        var element = rack[index];
+                        currentWord+=element;
+                        wordList.push(currentWord);
+                        loop(rack,depth+1);
+                        currentWord = currentWord.slice(0,currentWord.length-1);
+                        //double check the currWord is the right size idk if this work
+                    }
+                };
+            }
+            loop(rack,0);
+            
+            return wordList;
+        
+        }
+        
         rackList = getRackPossilities(rack);
         console.log(rackList);
         rackList = JSON.stringify(rackList);

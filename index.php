@@ -12,7 +12,7 @@
     
     
    
-    $results = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
+    $result = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
     function queryDB($rackList){
         $wordResult = "";
         foreach($elem as $rackList){
@@ -27,7 +27,7 @@
     }
     if($verb = "GET"){
         if($data.isset()){
-            $result = queryDB($data);}
+            $result = implode(queryDB($data));}
         die(echo "failed to find data");
     }
 
@@ -40,6 +40,6 @@
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
-    echo json_encode($results);
+    echo json_encode(["words"=>$result]);
 
 ?>
