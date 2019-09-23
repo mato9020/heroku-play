@@ -4,7 +4,8 @@
     $uri = $_SERVER['PATH_INFO'];
     $data = json_decode($_POST['words']);
     
-    
+
+
     print_r($verb);
     print_r($data);
     //this is the basic way of getting a database handler from PDO, PHP's built in quasi-ORM
