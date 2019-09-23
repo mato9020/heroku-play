@@ -19,8 +19,8 @@
 
     }
     elseif($verb = "POST"){
-        if($data.isset()){
-            
+        echo json_encode($data);
+
         }
        /*
         if($data.isset()){
