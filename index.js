@@ -45,10 +45,10 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     let data = getWords();
+    console.log("index.php"+"?"+"words="+data);
     $.ajax({
-        url:"index.php",
-        method:"POST",
-        data:{words:data},
+        url:"index.php"+"?"+"words="+data,
+        method:"GET",
         success:data=>{
             console.log("success");
             console.log(data);

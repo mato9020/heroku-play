@@ -18,9 +18,6 @@
         echo json_encode("getting");
         echo json_encode($verb);
         echo json_encode($data);
-    }
-   
-       /*
         if($data.isset()){
             
             foreach($data as $elem){
@@ -42,8 +39,12 @@
             echo json_encode("failure at setting");
         }
         
-        echo json_encode("posting");
-        */
+    
+    }
+   
+       
+        
+        
         
 
 
