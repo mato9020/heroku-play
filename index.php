@@ -16,6 +16,7 @@
     
     if($verb="GET"){
         echo json_encode("getting");
+        echo json_encode($verb);
 
     }
     elseif($verb = "POST"){
