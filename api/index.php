@@ -10,7 +10,10 @@ $results = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /num
 
 
 if($verb="POST"){
-
+    $results = "ok";
+}
+elseif($verb = "GET"){
+    $results= "nok";
 }
 header('HTTP/1.1 200 OK');
 header('Content-Type: application/json');
