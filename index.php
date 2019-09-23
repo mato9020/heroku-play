@@ -22,7 +22,7 @@
         try{
             //echo json_encode($data);
         }
-        catch(Exception $e){
+        catch(){
             echo "caught exception";
         }
 
