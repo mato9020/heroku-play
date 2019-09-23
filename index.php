@@ -21,7 +21,7 @@
     elseif($verb = "POST"){
         if($data.isset()){
             $wordResult = "";
-            foreach($elem as $data){
+            foreach($data as $elem){
                 $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
                 $statement->execute();
                 $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
