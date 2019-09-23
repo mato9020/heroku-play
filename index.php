@@ -2,7 +2,7 @@
     ini_set('display_errors',1);
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
-    $data = $_GET['rack'];
+    $data = $_GET['data'];
     
     print_r($verb);
     print_r($data);

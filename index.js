@@ -7,7 +7,7 @@ var genericGetRequest = function(URL,dat,cb){
     $.ajax({
         type:'GET',
         url:URL,
-        data:{words:dat},
+        data:{dat},
         dataType:"json",
         success:function(data){
             JSON.parse(cb(data));
