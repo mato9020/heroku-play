@@ -47,7 +47,7 @@ $("#generateRack").on('click', function(){
     let data = getWords();
     $.ajax({
         url:"index.php",
-        method:"GET",
+        method:"POST",
         data:{words:data},
         success:data=>{
             console.log("success");

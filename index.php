@@ -17,11 +17,11 @@
    
     $result = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
     
-    if($verb="POST"){
+    if($verb="GET"){
         
 
     }
-    elseif($verb = "GET"){
+    elseif($verb = "POST"){
         if($data.isset()){
             $wordResult = "";
             foreach($elem as $data){
@@ -31,9 +31,9 @@
             }
             $result = $wordResult.explode("@@");
             //this part is perhaps overkill but I wanted to set the HTTP headers and status code
-    //making to this line means everything was great with this request
+            //making to this line means everything was great with this request
             header('HTTP/1.1 200 OK');
-    //this lets the browser know to expect json
+            //this lets the browser know to expect json
             header('Content-Type: application/json');
             echo json_encode($result);
         }
