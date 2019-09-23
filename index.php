@@ -2,7 +2,8 @@
     ini_set('display_errors',1);
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
-    $data = $_GET['data'];
+    $data = json_decode($_POST['words']);
+    
     
     print_r($verb);
     print_r($data);
@@ -14,34 +15,43 @@
     
    
     $result = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
-    function queryDB($rackList){
-        $wordResult = "";
-        foreach($elem as $rackList){
-            $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
-            $query = $dbhandle->query($query);
-            $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
-        }
-        $words = $wordResult.explode("@@");
-        return $words;
-    }
+    
     if($verb="POST"){
-    }
-    if($verb = "GET"){
         
+
+    }
+    elseif($verb = "GET"){
         if($data.isset()){
-            $result = implode(queryDB($data));}
-        die(echo "failed to find data");
+            $wordResult = "";
+            foreach($elem as $data){
+                $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
+                $statement->execute();
+                $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
+            }
+            $result = $wordResult.explode("@@");
+            //this part is perhaps overkill but I wanted to set the HTTP headers and status code
+    //making to this line means everything was great with this request
+            header('HTTP/1.1 200 OK');
+    //this lets the browser know to expect json
+            header('Content-Type: application/json');
+            echo json_encode($result);
+        }
+        else{
+            echo json_encode("failure at setting");
+        }
+        
     }
 
 
 
 
-    //this part is perhaps overkill but I wanted to set the HTTP headers and status code
+//this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
     //this lets the browser know to expect json
     header('Content-Type: application/json');
+    
     //this creates json and gives it back to the browser
-    echo json_encode(["words"=>$result]);
+    echo json_encode("hmmm");
 
 ?>
