@@ -17,7 +17,7 @@
     function queryDB($rackList){
         $wordResult = "";
         foreach($elem as $rackList){
-            $statement = $dbhandle->prepare("SELECT words from racks where rack="+$elem);
+            $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
             $query = $dbhandle->query($query);
             $wordResult .= $query->fetchAll(PDO::FETCH_ASSOC);
         }
