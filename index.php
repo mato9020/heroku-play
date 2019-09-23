@@ -19,6 +19,9 @@
 
     }
     elseif($verb = "POST"){
+        if($data.isset()){
+            
+        }
        /*
         if($data.isset()){
             
