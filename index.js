@@ -26,7 +26,7 @@ var getWords = function(){
             }
         };
     }
-    loop(rack,0);
+    loop(racks,0);
     
     rackList = JSON.stringify(wordList);
     console.log(wordList);
