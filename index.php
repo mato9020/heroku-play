@@ -1,7 +1,7 @@
 <?php
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
-    $data = json_decode($_POST['words']);
+    $data = json_decode($_GET['words']);
     
 
 
