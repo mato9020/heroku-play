@@ -19,8 +19,11 @@
 
     }
     elseif($verb = "POST"){
-        
-
+        try{
+            //echo json_encode($data);
+        }
+        catch(Throwable $t){
+            echo "caught exception";
         }
        /*
         if($data.isset()){
