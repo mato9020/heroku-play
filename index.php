@@ -31,7 +31,7 @@
         }
         $result = $wordResult;
 
-        echo json_encode($wordResult[0][0]);
+        echo json_encode($wordResult[0][0]["words"]);
     
         
 
