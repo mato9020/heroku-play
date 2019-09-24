@@ -6,7 +6,7 @@ var words = [];
 var showRacks = function(rack){
     rack.map(racks=>
         {$("#bingos").append(`<li><span>${racks}</span></li>`);});
-    
+    document.getElementById("Rack").innerHTML = rack["rack"];
 };
 var genericGetRequest = function(){
    
@@ -56,7 +56,8 @@ $("#generateRack").on('click', function(){
         success:data=>{
             console.log("success");
             console.log(data);
-            showRacks(data);
+            showRacks(data["words"]);
+
         }
     });
 });
