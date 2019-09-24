@@ -15,19 +15,17 @@
     $result = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
     
     if($verb="GET"){
-        echo json_encode("getting");
 
         $wordResult = empty(array());
         
         foreach($data as $elem){
-            echo json_encode($elem);
             echo json_encode("SELECT words from racks where rack='".$elem."'");
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
 
             $statement->execute();
-            echo "\n";
-            echo json_encode($statement);
-            array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@"));
+            $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@");
+            echo $queryResult;
+            array_push($wordResult, $queryResult);
         }
 
         $result = $wordResult;
