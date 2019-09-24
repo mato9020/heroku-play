@@ -46,10 +46,14 @@ $(document).ready(function(){
 
 
 $("#generateRack").on('click', function(){
-    console.log("index.php"+"?"+"words=['"+words+"']");
     
+    var url = "index.php"+"?"+"words=["
+    for (let index = 0; index < words.length; index++) {
+        url+= words[index];
+    }
+    url+="]";
     $.ajax({
-        url:"index.php"+"?"+"words=["+words+"]",
+        url:url,
         method:"GET",
         success:data=>{
             console.log("success");
