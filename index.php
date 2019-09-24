@@ -63,6 +63,6 @@
         header('HTTP/1.1 200 OK');
         //this lets the browser know to expect json
         header('Content-Type: application/json');
-        echo json_encode(array('rack'=>$racks,'words'=>$result));
+        echo json_encode(array('rack'=>$myrack,'words'=>$result));
     }
 ?>
