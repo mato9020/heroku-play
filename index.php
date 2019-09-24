@@ -27,10 +27,7 @@
             // $queryResult = $queryResult.explode("@@");
             // echo json_encode($queryResult);
             array_push($wordResult, $queryResult);
-            implode("@@",$wordResult);
-            echo json_encode($wordResult);
-            implode("@@",$wordResult['words']);
-            echo json_encode($wordResult);
+            echo json_encode(array_keys($wordResult));
         
         }
 
