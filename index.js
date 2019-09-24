@@ -27,7 +27,13 @@ var getWords = function(){
         };
     }
     loop(racks,0);
-    
+    for (let index = 0; index < wordList.length; index++) {
+        wordList[index].split('').sort().join(""); 
+    }
+    wordList.sort();
+    wordList= wordList.filter(function(item, pos){
+        return wordList.indexOf(item)== pos; 
+    });//taken from stackexchange https://stackoverflow.com/questions/38206915/filter-out-array-to-have-only-unique-values
     rackList = JSON.stringify(wordList);
     console.log(wordList);
 
@@ -45,9 +51,9 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     let data = getWords();
-    console.log("index.php"+"?"+"words="+data);
+    console.log("index.php");
     $.ajax({
-        url:"index.php"+"?"+"words="+data,
+        url:"index.php",
         method:"GET",
         success:data=>{
             console.log("success");
