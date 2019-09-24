@@ -6,7 +6,7 @@ var words = [];
 var showRacks = function(rack){
 
     rack["words"].filter(Boolean).map(racks=>
-        {$("#bingos").append(`<li><span class = "hidden" id=${racks}>${racks}</span></li>`);});
+        {$("#bingos").append(`<li><span class = "answer hidden" id=${racks}>${racks}</span></li>`);});
     document.getElementById("Rack").innerHTML = rack["rack"];
 };
 var genericGetRequest = function(){
@@ -17,7 +17,7 @@ $("#WordEntered").on('click',function() {
     
     var x = document.getElementById(enteredWord);
     if(x!=null){
-        document.getElementById(enteredWord).toggleClass("hidden");
+        document.getElementById(enteredWord).find(".answer").toggleClass("hidden");
     }
 });
 
