@@ -8,7 +8,29 @@
     $dbhandle = new PDO("sqlite:scrabble.sqlite") or die("Failed to open DB");
     
     
-    
+    function generate_rack($n){
+        $tileBag = "AAAAAAAAABBCCDDDDEEEEEEEEEEEEFFGGGHHIIIIIIIIIJKLLLLMMNNNNNNOOOOOOOOPPQRRRRRRSSSSTTTTTTUUUUVVWWXYYZ";
+        $rack_letters = substr(str_shuffle($tileBag), 0, $n);
+        
+        $temp = str_split($rack_letters);
+        sort($temp);
+        return implode($temp);
+      };
+    $myrack = generate_rack(7);
+    $racks = [];
+    for($i = 0; $i < pow(2, strlen($myrack)); $i++){
+        $ans = "";
+        for($j = 0; $j < strlen($myrack); $j++){
+            //if the jth digit of i is 1 then include letter
+            if (($i >> $j) % 2) {
+            $ans .= $myrack[$j];
+            }
+        }
+        if (strlen($ans) > 1){
+            $racks[] = $ans;	
+        }
+    }
+    $racks = array_unique($racks);
     
    
     $result = "Usage: GET /number[/:id], POST /number, PUT /number/:id, DELETE /number/:id";
@@ -17,7 +39,7 @@
 
         $wordResult = array();
         
-        foreach($data as $elem){
+        foreach($racks as $elem){
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
 
             $statement->execute();

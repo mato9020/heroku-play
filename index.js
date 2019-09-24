@@ -49,9 +49,7 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     
-    var url = "index.php"+"?"+"words="+words;
     
-    url+="]";
     $.ajax({
         url:url,
         method:"GET",
