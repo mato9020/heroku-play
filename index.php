@@ -16,13 +16,11 @@
     
     if($verb="GET"){
         echo json_encode("getting");
-        echo json_encode($verb);
-        echo json_encode($data);
-        echo json_encode($data[0]);
-        
+                
         $wordResult = empty(array());
         
         foreach($data as $elem){
+            echo json_encode($elem);
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
             $statement->execute();
             array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC.explode("@@")));
@@ -59,6 +57,5 @@
     header('Content-Type: application/json');
     
     //this creates json and gives it back to the browser
-    echo json_encode("hmmm");
 
 ?>
