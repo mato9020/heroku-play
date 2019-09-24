@@ -21,7 +21,9 @@
         
         foreach($data as $elem){
             echo json_encode($elem);
+            echo json_encode("SELECT words from racks where rack='".$elem."'");
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
+
             $statement->execute();
             echo json_encode("\n"+$statement);
             array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@"));
@@ -38,9 +40,6 @@
         //this lets the browser know to expect json
         header('Content-Type: application/json');
         echo json_encode($result);
-    
-        
-    
     }
    
        
