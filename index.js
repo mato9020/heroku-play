@@ -44,9 +44,9 @@ $(document).ready(function(){
 
 
 $("#generateRack").on('click', function(){
-    console.log("index.php");
+    console.log("index.php"+"?"+words);
     $.ajax({
-        url:"index.php",
+        url:"index.php"+"?"+words,
         method:"GET",
         success:data=>{
             console.log("success");
