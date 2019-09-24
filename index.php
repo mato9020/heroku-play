@@ -29,12 +29,13 @@
             
         
         }
-        $result = $wordResult;
+        $result = "";
 
         echo json_encode($wordResult[0][0]["words"]);
-        echo json_encode(count($wordResult));
-        echo json_encode(count($wordResult[0]));
-        echo json_encode(count($wordResult[0][0]));
+        for ($i=0; $i < count($wordResult); $i++) { 
+            $result.=$wordResult[i][0]['words'];
+        }
+        echo json_encode($result);
     
         
 
