@@ -21,6 +21,7 @@
         foreach($data as $elem){
             echo json_encode("SELECT words from racks where rack='".$elem."'");
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
+            echo json_encode($statement);
 
             $statement->execute();
             $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@");
