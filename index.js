@@ -19,9 +19,9 @@ var getWords = function(){
             for (let index = 0; index < rack.length; index++) {
                 var element = rack[index];
                 currentWord+=element;
-                currentWord = currentWord.split('').sort().join('');
-                if(wordList.indexOf(currentWord)===1){
-                    wordList.push(currentWord);
+                sortedWord = currentWord.split('').sort().join('');
+                if(wordList.indexOf(sortedWord)===1){
+                    wordList.push(sortedWord);
                 }
                 loop(rack,depth+1);
                 currentWord = currentWord.slice(0,currentWord.length-1);
