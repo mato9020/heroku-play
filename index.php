@@ -19,7 +19,6 @@
         $wordResult = array();
         
         foreach($data as $elem){
-            echo json_encode("SELECT words from racks where rack='".$elem."'");
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
 
             $statement->execute();
@@ -28,6 +27,7 @@
             // $queryResult = $queryResult.explode("@@");
             // echo json_encode($queryResult);
             array_push($wordResult, $queryResult);
+            implode($wordResult,"@@");
             echo json_encode($wordResult);
         }
 
