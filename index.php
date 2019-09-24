@@ -15,7 +15,7 @@
         $temp = str_split($rack_letters);
         sort($temp);
         return implode($temp);
-      };
+    };
     $myrack = generate_rack(7);
     $racks = [];
     for($i = 0; $i < pow(2, strlen($myrack)); $i++){
@@ -63,6 +63,6 @@
         header('HTTP/1.1 200 OK');
         //this lets the browser know to expect json
         header('Content-Type: application/json');
-        echo json_encode($result);
+        echo json_encode(array('rack'=>$racks,'words'=>$result));
     }
 ?>
