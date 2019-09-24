@@ -25,9 +25,9 @@
 
             $statement->execute();
             $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);
-            echo json_encode($queryResult);
-            $queryResult = $queryResult.explode("@@");
-            echo json_encode($queryResult);
+            // echo json_encode($queryResult);
+            // $queryResult = $queryResult.explode("@@");
+            // echo json_encode($queryResult);
             array_push($wordResult, $queryResult);
             echo json_encode($wordResult);
         }
