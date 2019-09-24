@@ -13,4 +13,6 @@ h1{
 }
 u1{
     columns:4 auto;
+    -webkit-columns: 2;
+    -moz-columns: 2;
 }
