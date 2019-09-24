@@ -16,14 +16,14 @@
     
     if($verb="GET"){
         echo json_encode("getting");
-                
+
         $wordResult = empty(array());
         
         foreach($data as $elem){
             echo json_encode($elem);
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
             $statement->execute();
-            array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC.explode("@@")));
+            array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@"));
         }
 
         $result = $wordResult;
