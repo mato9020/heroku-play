@@ -31,12 +31,13 @@
         }
         $result = "";
 
-        echo json_encode($wordResult[0][0]["words"]);
         for ($i=0; $i < count($wordResult); $i++) {
+
             $result.="@@".$wordResult[$i][0]['words'];
         }
-        echo json_encode($result);
-    
+        explode("@@",$result);
+        
+        
         
 
         //this part is perhaps overkill but I wanted to set the HTTP headers and status code
@@ -44,6 +45,7 @@
         header('HTTP/1.1 200 OK');
         //this lets the browser know to expect json
         header('Content-Type: application/json');
+        echo json_encode($result);
     }
    
        
