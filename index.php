@@ -29,9 +29,9 @@
             
         
         }
-
         $result = $wordResult;
-        echo json_encode($wordResult);
+
+        echo json_encode($wordResult[0][0]);
     
         
 
