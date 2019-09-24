@@ -30,6 +30,7 @@ $(document).ready(function(){
             };
         }
         loop(racks,0);
+        console.log(wordList);
         rackList = JSON.stringify(wordList);
         console.log(wordList);
     
@@ -45,8 +46,11 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     console.log("index.php"+"?"+"words=['"+words+"']");
+    words.forEach(element => {
+        element = 
+    });
     $.ajax({
-        url:"index.php"+"?"+"words=['"+words+"']",
+        url:"index.php"+"?"+"words=["+words+"]",
         method:"GET",
         success:data=>{
             console.log("success");
