@@ -4,7 +4,8 @@ const racks = document.getElementById("Rack").innerHTML;
 var words = [];
 
 var showRacks = function(rack){
-    rack.map(racks=>
+
+    rack["words"].filter(Boolean).map(racks=>
         {$("#bingos").append(`<li><span>${racks}</span></li>`);});
     document.getElementById("Rack").innerHTML = rack["rack"];
 };
@@ -56,7 +57,7 @@ $("#generateRack").on('click', function(){
         success:data=>{
             console.log("success");
             console.log(data);
-            showRacks(data["words"]);
+            showRacks(data);
 
         }
     });
