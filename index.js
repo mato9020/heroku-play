@@ -17,7 +17,7 @@ $("#WordEntered").on('click',function() {
     
     var x = document.getElementById(enteredWord);
     if(x!=null){
-        document.getElementById(enteredWord).find(".answer").toggleClass("hidden");
+        document.getElementById(enteredWord).style.display = "block";
     }
 });
 
