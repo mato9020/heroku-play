@@ -23,6 +23,7 @@
             echo json_encode($elem);
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
             $statement->execute();
+            echo json_encode("\n"+$statement);
             array_push($wordResult, $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@"));
         }
 
