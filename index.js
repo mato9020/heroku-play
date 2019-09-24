@@ -23,7 +23,7 @@ $(document).ready(function(){
                     var element = rack[index];
                     currentWord+=element;
                     var word = '"'+currentWord+'"';
-                    wordList.push(currentWord);
+                    wordList.push(word);
                     loop(rack,depth+1);
                     currentWord = currentWord.slice(0,currentWord.length-1);
                     //double check the currWord is the right size idk if this work
@@ -45,20 +45,15 @@ $(document).ready(function(){
 
 
 
+
+
 $("#generateRack").on('click', function(){
     
     var url = "index.php"+"?"+"words="+words;
-    /*for (let index = 0; index < words.length; index++) {
-        if(index ==  words.length-1){
-            url+='"'+words[index]+'"';
-        }else{
-            url+='"' +words[index]+'",';
-        }
-    }
-    url+="]";*/
+    
+    url+="]";
     $.ajax({
         url:url,
-
         method:"GET",
         success:data=>{
             console.log("success");
