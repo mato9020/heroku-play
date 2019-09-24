@@ -47,15 +47,15 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     
-    var url = "index.php"+"?"+"words=["
-    for (let index = 0; index < words.length; index++) {
+    var url = "index.php"+"?"+"words="+words;
+    /*for (let index = 0; index < words.length; index++) {
         if(index ==  words.length-1){
             url+='"'+words[index]+'"';
         }else{
             url+='"' +words[index]+'",';
         }
     }
-    url+="]";
+    url+="]";*/
     $.ajax({
         url:url,
 
