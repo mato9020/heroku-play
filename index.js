@@ -49,11 +49,12 @@ $("#generateRack").on('click', function(){
     
     var url = "index.php"+"?"+"words=["
     for (let index = 0; index < words.length; index++) {
-        url+= words[index];
+        url+='"' +words[index]+'"';
     }
     url+="]";
     $.ajax({
         url:url,
+
         method:"GET",
         success:data=>{
             console.log("success");
