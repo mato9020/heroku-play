@@ -24,7 +24,7 @@
 
             $statement->execute();
             $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC).explode("@@");
-            echo $queryResult;
+            echo json_encode($queryResult);
             array_push($wordResult, $queryResult);
         }
 
