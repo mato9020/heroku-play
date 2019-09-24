@@ -33,14 +33,9 @@
 
         for ($i=0; $i < count($wordResult); $i++) {
 
-            $result.="@@".$wordResult[$i][0]['words'];
+            $result.=$wordResult[$i][0]['words']."@@";
         }
         $result = explode("@@",$result);
-        
-        
-        
-
-
         //this part is perhaps overkill but I wanted to set the HTTP headers and status code
         //making to this line means everything was great with this request
         header('HTTP/1.1 200 OK');
@@ -48,21 +43,4 @@
         header('Content-Type: application/json');
         echo json_encode($result);
     }
-   
-       
-        
-        
-        
-
-
-
-
-//this part is perhaps overkill but I wanted to set the HTTP headers and status code
-    //making to this line means everything was great with this request
-    header('HTTP/1.1 200 OK');
-    //this lets the browser know to expect json
-    header('Content-Type: application/json');
-    
-    //this creates json and gives it back to the browser
-
 ?>
