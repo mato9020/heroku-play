@@ -18,14 +18,19 @@
         echo json_encode("getting");
         echo json_encode($verb);
         echo json_encode($data);
+        echo json_encode($data[0]);
         
         $wordResult = empty(array());
+        $statement = $dbhandle->prepare("SELECT words from racks where rack='".$data."'");
+        $statement->execute();
+        /*
         foreach($data as $elem){
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
             $statement->execute();
             array_push($wordResult, $query->fetchAll(PDO::FETCH_ASSOC.explode("@@")));
         }
-        $result = $wordResult.explode("@@");
+        */
+        $result = $wordResult;
         
 
         //this part is perhaps overkill but I wanted to set the HTTP headers and status code
