@@ -22,7 +22,6 @@ var getWords = function(){
                 var sortedWord = currentWord.split("")
                 sortedWord =sortedWord.sort();
                 sortedWord = sortedWord.join('');
-                console.log(wordList.indexOf(sortedWord));
                 if(wordList.indexOf(sortedWord)<0){
                     wordList.push(sortedWord);
                 }
