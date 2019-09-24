@@ -2,7 +2,6 @@
     $verb = $_SERVER['REQUEST_METHOD'];
     $uri = $_SERVER['PATH_INFO'];
     $data = json_decode($_GET['words']);
-    
 
 
     //this is the basic way of getting a database handler from PDO, PHP's built in quasi-ORM
@@ -27,7 +26,7 @@
             // $queryResult = $queryResult.explode("@@");
             // echo json_encode($queryResult);
             array_push($wordResult, $queryResult);
-            echo json_encode(array_keys($wordResult));
+            echo json_encode($wordResult[0]);
         
         }
 
