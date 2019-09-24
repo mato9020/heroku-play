@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+        .hidden {
+          display: none;
+        }
+      </style>
     <link rel="stylesheet" href="main_index_style.css">
     <style>
       .hidden {
@@ -15,9 +20,9 @@
     <p class = "inputs">
         <button id="generateRack">Generate Letter Set</button>
         <input type="text" id="GuessBox"></input>
-        <input type="button" id="WordEntered">Click to submit guess<input>
+        <button id="WordEntered">submit guess<input>
     </p>
-    <p id="Rack">ABILOTU</p>
+    <p id="Rack"></p>
     <u1 id = "bingos"></ul>
   </body>
   <script src = "index.js">

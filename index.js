@@ -6,47 +6,20 @@ var words = [];
 var showRacks = function(rack){
 
     rack["words"].filter(Boolean).map(racks=>
-        {$("#bingos").append(`<li><span>${racks}</span></li>`);});
+        {$("#bingos").append(`<li><span class = "answer hidden" id=${racks}>${racks}</span></li>`);});
     document.getElementById("Rack").innerHTML = rack["rack"];
 };
 var genericGetRequest = function(){
    
 };
-
-$(document).ready(function(){
-    /*
-    var getWords = function(){
-        var wordList = [];
-        var currentWord = "";
-        var loop = function(rack,depth){
-            if(depth<7){
-                for (let index = 0; index < rack.length; index++) {
-                    var element = rack[index];
-                    currentWord+=element;
-                    var word = '"'+currentWord+'"';
-                    wordList.push(word);
-                    loop(rack,depth+1);
-                    currentWord = currentWord.slice(0,currentWord.length-1);
-                    //double check the currWord is the right size idk if this work
-                }
-            };
-        }
-        loop(racks,0);
-        console.log(wordList);
-        rackList = JSON.stringify(wordList);
-        console.log(wordList);
+$("#WordEntered").on('click',function() {
+    var enteredWord = $("#WordEntered").innerHTML;
     
-        return wordList;
+    var x = document.getElementById(enteredWord);
+    if(x!=null){
+        x.toggleClass("hidden");
     }
-    words = getWords();
-
-    */
 });
-
-
-
-
-
 
 $("#generateRack").on('click', function(){
     
