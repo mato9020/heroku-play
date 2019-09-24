@@ -46,9 +46,7 @@ $(document).ready(function(){
 
 $("#generateRack").on('click', function(){
     console.log("index.php"+"?"+"words=['"+words+"']");
-    words.forEach(element => {
-        element = 
-    });
+    
     $.ajax({
         url:"index.php"+"?"+"words=["+words+"]",
         method:"GET",
