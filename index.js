@@ -13,7 +13,7 @@ var genericGetRequest = function(){
 };
 
 $(document).ready(function(){
-    
+    /*
     var getWords = function(){
         var wordList = [];
         var currentWord = "";
@@ -39,7 +39,7 @@ $(document).ready(function(){
     }
     words = getWords();
 
-    
+    */
 });
 
 
@@ -51,7 +51,7 @@ $("#generateRack").on('click', function(){
     
     
     $.ajax({
-        url:url,
+        url:"index.php",
         method:"GET",
         success:data=>{
             console.log("success");
