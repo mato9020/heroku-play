@@ -33,8 +33,8 @@
 
         echo json_encode($wordResult[0][0]["words"]);
         for ($i=0; $i < count($wordResult); $i++) {
-            echo json_encode($wordResult[i][0]['words']);
-            $result.=$wordResult[i][0]['words'];
+            echo json_encode($wordResult[$i][0]['words']);
+            $result.=$wordResult[$i][0]['words'];
         }
         echo json_encode($result);
     
