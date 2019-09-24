@@ -19,7 +19,10 @@ var getWords = function(){
             for (let index = 0; index < rack.length; index++) {
                 var element = rack[index];
                 currentWord+=element;
-                wordList.push(currentWord);
+                currentWord = currentWord.split('').sort().join('');
+                if(wordList.indexOf(currentWord)===1){
+                    wordList.push(currentWord);
+                }
                 loop(rack,depth+1);
                 currentWord = currentWord.slice(0,currentWord.length-1);
                 //double check the currWord is the right size idk if this work
@@ -27,13 +30,6 @@ var getWords = function(){
         };
     }
     loop(racks,0);
-    for (let index = 0; index < wordList.length; index++) {
-        wordList[index].split('').sort().join(""); 
-    }
-    wordList.sort();
-    wordList= wordList.filter(function(item, pos){
-        return wordList.indexOf(item)== pos; 
-    });//taken from stackexchange https://stackoverflow.com/questions/38206915/filter-out-array-to-have-only-unique-values
     rackList = JSON.stringify(wordList);
     console.log(wordList);
 
