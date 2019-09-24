@@ -32,9 +32,9 @@
         $result = $wordResult;
 
         echo json_encode($wordResult[0][0]["words"]);
-        echo json_encode($wordResult.sizeof());
-        echo json_encode($wordResult[0].sizeof());
-        echo json_encode($wordResult[0][0].sizeof());
+        echo json_encode(count($wordResult));
+        echo json_encode(count($wordResult[0]));
+        echo json_encode(count($wordResult[0][0]));
     
         
 
