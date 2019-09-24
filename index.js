@@ -13,7 +13,7 @@ var genericGetRequest = function(){
    
 };
 $("#WordEntered").on('click',function() {
-    var enteredWord = document.getElementById("GuessBox").innerHTML;
+    var enteredWord = document.getElementById("GuessBox").value;
     
     var x = document.getElementById(enteredWord);
     if(x!=null){
