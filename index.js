@@ -13,7 +13,7 @@ var genericGetRequest = function(){
    
 };
 $("#WordEntered").on('click',function() {
-    var enteredWord = document.getElementById("GuessBox").value;
+    var enteredWord = document.getElementById("GuessBox").value.toUpperCase();
     
     var x = document.getElementById(enteredWord);
     if(x!=null){
