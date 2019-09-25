@@ -37,24 +37,21 @@
     
     if($verb="GET"){
 
+
+
+
+
+
+
         $wordResult = array();
-        
         foreach($racks as $elem){
             $statement = $dbhandle->prepare("SELECT words from racks where rack='".$elem."'");
-
             $statement->execute();
             $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);
-            // echo json_encode($queryResult);
-            // $queryResult = $queryResult.explode("@@");
-            // echo json_encode($queryResult);
-            array_push($wordResult, $queryResult);
-            
-        
+            array_push($wordResult, $queryResult);    
         }
         $result = "";
-
         for ($i=0; $i < count($wordResult); $i++) {
-
             $result.=$wordResult[$i][0]['words']."@@";
         }
         $result = explode("@@",$result);
