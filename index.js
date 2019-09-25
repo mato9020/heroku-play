@@ -22,7 +22,7 @@ $("#WordEntered").on('click',function() {
 
 $("#generateRack").on('click', function(){
     $.ajax({
-        url:"index.php",
+        url:"api.php",
         method:"GET",
         success:data=>{
             console.log("success");
