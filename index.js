@@ -4,7 +4,6 @@ const racks = document.getElementById("Rack").innerHTML;
 var words = [];
 
 var showRacks = function(rack){
-
     rack["words"].filter(Boolean).map(racks=>
         {$("#bingos").append(`<li><span class = "answer hidden" id=${racks}>${racks}</span></li>`);});
     document.getElementById("Rack").innerHTML = rack["rack"];

@@ -11,8 +11,8 @@ h1{
     margin-left: 10px;
 
 }
-u1{
-    columns:4 auto;
-    -webkit-columns: 2;
-    -moz-columns: 2;
+#bingos{
+    -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
+    -moz-columns: 100px 3; /* Firefox */
+    columns: 100px 3;
 }
